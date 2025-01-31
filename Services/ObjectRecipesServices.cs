@@ -13,9 +13,6 @@ namespace Services
     {
         public override List<Recipe> GetAll()
         {
-            var afn = "appsettings:AssemblyFileName".GetConfigValue();
-            var cn = "appsettings:ClassName".GetConfigValue();
-
             return new List<Recipe>() 
             {
                 new Recipe() { Id = Guid.NewGuid(), Title = "Object 01" },
