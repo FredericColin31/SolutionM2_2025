@@ -23,5 +23,12 @@ namespace Services
             
             return recipeList;
         }
+
+        public override List<Recipe> GetByTitle(string title)
+        {
+            var recipes = GetAll();
+
+            return recipes.Where(@recipe => @recipe.Title.Contains(title)).ToList();
+        }
     }
 }

@@ -1,3 +1,4 @@
+using DataContracts;
 using Newtonsoft.Json;
 using Services;
 
@@ -12,7 +13,16 @@ namespace Ihm
 
         private void button1_Click(object sender, EventArgs e)
         {
-            var recipes = Factory.Instance.GetAll();
+            List<Recipe> recipes = null;
+
+            if (String.IsNullOrEmpty(textBox1.Text))
+            {
+                recipes = Factory.Instance.GetAll();
+            }
+            else
+            {
+                recipes = Factory.Instance.GetByTitle(textBox1.Text);
+            }
 
             dataGridView1.DataSource = recipes;
         }

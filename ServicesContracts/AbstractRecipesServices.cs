@@ -12,6 +12,8 @@ namespace ServicesContracts
     {
         public abstract List<Recipe> GetAll();
 
+        public abstract List<Recipe> GetByTitle(String title);
+
         protected List<Recipe> GetInternalAll(String connectionString, String commandText, System.Data.CommandType commandType)
         {
             var recipes = new List<Recipe>();
