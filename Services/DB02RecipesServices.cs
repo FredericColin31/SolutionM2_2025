@@ -10,12 +10,12 @@ using System.Threading.Tasks;
 
 namespace Services
 {
-    public class DB01RecipesServices : AbstractRecipesServices 
+    public class DB02RecipesServices : AbstractRecipesServices 
     {
         public override List<Recipe> GetAll()
         {
             var cs = "appsettings:RecipesConnectionString".GetConfigValue();
-            return GetInternalAll(cs, "SELECT * FROM Recipes", System.Data.CommandType.Text);
+            return GetInternalAll(cs, "sSelectRecipes", System.Data.CommandType.StoredProcedure);
         }
     }
 }
