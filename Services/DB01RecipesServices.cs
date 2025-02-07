@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Services
 {
-    public class DB01RecipesServices : AbstractRecipesServices
+    public class DB01RecipesServices : AbstractRecipesServices 
     {
         public override List<Recipe> GetAll()
         {
