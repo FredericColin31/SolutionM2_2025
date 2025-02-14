@@ -20,7 +20,9 @@ namespace Services
 
         public override List<Recipe> GetByTitle(string title)
         {
-            throw new NotImplementedException();
+            var cs = "appsettings:RecipesConnectionString".GetConfigValue();
+            return GetInternalAll(cs, $"SELECT * FROM Recipes WHERE Title LIKE '%{title}%'", System.Data.CommandType.Text);
+
         }
     }
 }

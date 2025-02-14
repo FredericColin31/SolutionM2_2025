@@ -20,7 +20,9 @@ namespace Services
 
         public override List<Recipe> GetByTitle(string title)
         {
-            throw new NotImplementedException();
+            var cs = "appsettings:RecipesConnectionString".GetConfigValue();
+            return GetInternalAll(cs, "sSelectRecipes", System.Data.CommandType.StoredProcedure, title);
+
         }
     }
 }

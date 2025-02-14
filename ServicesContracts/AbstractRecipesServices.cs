@@ -14,7 +14,7 @@ namespace ServicesContracts
 
         public abstract List<Recipe> GetByTitle(String title);
 
-        protected List<Recipe> GetInternalAll(String connectionString, String commandText, System.Data.CommandType commandType)
+        protected List<Recipe> GetInternalAll(String connectionString, String commandText, System.Data.CommandType commandType, string title = null)
         {
             var recipes = new List<Recipe>();
 
@@ -26,15 +26,18 @@ namespace ServicesContracts
 
                 cmd.CommandText = commandText;
                 cmd.CommandType = commandType; ;
-
+                if (title != null)
+                {
+                    cmd.Parameters.AddWithValue("@title", title);
+                }
                 var reader = cmd.ExecuteReader();
 
                 while (reader.Read())
                 {
                     var id = Guid.Parse(reader["Id"].ToString());
-                    var title = reader["Title"].ToString();
+                    var titre = reader["Title"].ToString();
 
-                    recipes.Add(new Recipe { Id = id, Title = title });
+                    recipes.Add(new Recipe { Id = id, Title = titre });
                 }
             }
 
