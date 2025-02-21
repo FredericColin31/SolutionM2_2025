@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Transactions;
 
 namespace Services
 {
@@ -17,7 +18,12 @@ namespace Services
         {
             using (var context = new BRecipesContext())
             {
-                context.Recipes.Where(@r => @r.Id == recipeID).ExecuteDelete();
+                using (var scope = new TransactionScope())
+                {
+                    context.Recipes.Where(@r => @r.Id == recipeID).ExecuteDelete();
+
+                    scope.Complete();
+                }
             }
         }
 
