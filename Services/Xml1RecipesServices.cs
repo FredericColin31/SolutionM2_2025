@@ -11,6 +11,11 @@ namespace Services
 {
     public class Xml1RecipesServices : AbstractRecipesServices
     {
+        public override void DeleteById(Guid recipeID)
+        {
+            throw new NotImplementedException();
+        }
+
         public override List<Recipe> GetAll()
         {
             var xdoc = new XmlDocument();

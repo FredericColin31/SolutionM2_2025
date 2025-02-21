@@ -11,6 +11,11 @@ namespace Services
 {
     public class ObjectRecipesServices : AbstractRecipesServices
     {
+        public override void DeleteById(Guid recipeID)
+        {
+            throw new NotImplementedException();
+        }
+
         public override List<Recipe> GetAll()
         {
             return new List<Recipe>() 

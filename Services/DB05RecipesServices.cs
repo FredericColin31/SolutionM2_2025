@@ -1,4 +1,5 @@
 ﻿using DataContracts;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage;
 using Services.DataAccessLayer;
 using ServicesContracts;
@@ -12,6 +13,14 @@ namespace Services
 {
     public class DB05RecipesServices : AbstractRecipesServices
     {
+        public override void DeleteById(Guid recipeID)
+        {
+            using (var context = new BRecipesContext())
+            {
+                context.Recipes.Where(@r => @r.Id == recipeID).ExecuteDelete();
+            }
+        }
+
         public override List<DataContracts.Recipe> GetAll()
         {
             using (var context = new BRecipesContext())

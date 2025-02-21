@@ -11,6 +11,11 @@ namespace Services
 {
     public class JsonRecipesServices : AbstractRecipesServices
     {
+        public override void DeleteById(Guid recipeID)
+        {
+            throw new NotImplementedException();
+        }
+
         public override List<Recipe> GetAll()
         {
             var json = File.ReadAllText("recipes.json");

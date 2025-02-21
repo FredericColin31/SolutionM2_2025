@@ -13,6 +13,11 @@ namespace Services
 {
     public class DB04RecipesServices : AbstractRecipesServices
     {
+        public override void DeleteById(Guid recipeID)
+        {
+            throw new NotImplementedException();
+        }
+
         public override List<Recipe> GetAll()
         {
             var recipes = new List<Recipe>();

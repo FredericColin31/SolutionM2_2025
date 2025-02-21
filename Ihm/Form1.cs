@@ -35,5 +35,17 @@ namespace Ihm
 
             File.WriteAllText("recipes.json", json);
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            var selectedRecipe = dataGridView1.SelectedRows[0].DataBoundItem as DataContracts.Recipe;
+
+            if (selectedRecipe != null)
+            {
+                Factory.Instance.DeleteById(selectedRecipe.Id);
+                dataGridView1.DataSource = Factory.Instance.GetAll();
+            }
+
+        }
     }
 }

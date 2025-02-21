@@ -11,6 +11,11 @@ namespace Services
 {
     public class DB03RecipesServices : AbstractRecipesServices
     {
+        public override void DeleteById(Guid recipeID)
+        {
+            throw new NotImplementedException();
+        }
+
         public override List<Recipe> GetAll()
         {
             var cs = "appsettings:AzureRecipesConnectionString".GetConfigValue();

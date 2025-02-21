@@ -12,6 +12,11 @@ namespace Services
 {
     public class DB02RecipesServices : AbstractRecipesServices 
     {
+        public override void DeleteById(Guid recipeID)
+        {
+            throw new NotImplementedException();
+        }
+
         public override List<Recipe> GetAll()
         {
             var cs = "appsettings:RecipesConnectionString".GetConfigValue();

@@ -32,6 +32,7 @@
             dataGridView1 = new DataGridView();
             button2 = new Button();
             textBox1 = new TextBox();
+            button3 = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -72,11 +73,22 @@
             textBox1.Size = new Size(154, 27);
             textBox1.TabIndex = 3;
             // 
+            // button3
+            // 
+            button3.Location = new Point(694, 323);
+            button3.Name = "button3";
+            button3.Size = new Size(94, 29);
+            button3.TabIndex = 4;
+            button3.Text = "Delete";
+            button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(button3);
             Controls.Add(textBox1);
             Controls.Add(button2);
             Controls.Add(button1);
@@ -94,5 +106,6 @@
         private DataGridView dataGridView1;
         private Button button2;
         private TextBox textBox1;
+        private Button button3;
     }
 }

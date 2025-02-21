@@ -14,6 +14,8 @@ namespace ServicesContracts
 
         public abstract List<Recipe> GetByTitle(String title);
 
+        public abstract void DeleteById(Guid recipeID);
+
         protected List<Recipe> GetInternalAll(String connectionString, String commandText, System.Data.CommandType commandType, string title = null)
         {
             var recipes = new List<Recipe>();
