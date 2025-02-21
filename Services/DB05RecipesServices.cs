@@ -1,4 +1,5 @@
-﻿using DataContracts;
+﻿using AutoMapper;
+using DataContracts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage;
 using Services.DataAccessLayer;
@@ -14,6 +15,23 @@ namespace Services
 {
     public class DB05RecipesServices : AbstractRecipesServices
     {
+        public override void Create(DataContracts.Recipe recipe)
+        {
+            var config = new MapperConfiguration(@cfg => @cfg.CreateMap<DataContracts.Recipe, DataAccessLayer.Recipe>());
+
+            var mapper = new Mapper(config);
+            var entity = new DataAccessLayer.Recipe();
+
+            entity = mapper.Map(recipe, entity);
+
+            using (var context = new BRecipesContext())
+            {
+                context.Recipes.Add(entity);
+
+                context.SaveChanges();
+            }
+        }
+
         public override void DeleteById(Guid recipeID)
         {
             using (var context = new BRecipesContext())

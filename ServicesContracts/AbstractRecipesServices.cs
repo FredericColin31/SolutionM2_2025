@@ -16,6 +16,8 @@ namespace ServicesContracts
 
         public abstract void DeleteById(Guid recipeID);
 
+        public abstract void Create(DataContracts.Recipe recipe);
+
         protected List<Recipe> GetInternalAll(String connectionString, String commandText, System.Data.CommandType commandType, string title = null)
         {
             var recipes = new List<Recipe>();

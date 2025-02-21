@@ -47,5 +47,14 @@ namespace Ihm
             }
 
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            var recipe = new Recipe() { Title = "Quiche Lorraine" };
+
+            Factory.Instance.Create(recipe);
+
+            dataGridView1.DataSource = Factory.Instance.GetAll();
+        }
     }
 }
